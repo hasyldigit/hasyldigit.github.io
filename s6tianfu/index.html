@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>英雄联盟S6天赋加点大全 - 英雄联盟S6赛季符文天赋全攻略</title>
+    <meta name="description" content="英雄联盟S6赛季天赋加点指南，包含S6赛季所有英雄符文天赋推荐、天赋树加点顺序、天赋搭配思路及实战应用技巧。">
+    <meta name="keywords" content="s6天赋加点大全,英雄联盟S6天赋,英雄联盟符文,LOL S6天赋,英雄联盟S6攻略">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #8b5cf6;
+            --secondary-color: #ec4899;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --accent-gold: #fbbf24;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            font-size: 0.9rem;
+            -webkit-text-fill-color: var(--text-muted);
+            background: none;
+            font-weight: normal;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(180deg, rgba(139, 92, 246, 0.15) 0%, var(--bg-dark) 100%);
+            padding: 80px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .season-badge {
+            display: inline-block;
+            background: rgba(251, 191, 36, 0.2);
+            color: var(--accent-gold);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            border: 1px solid rgba(251, 191, 36, 0.3);
+        }
+
+        /* Main Content */
+        main {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            padding-left: 15px;
+            border-left: 4px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title span {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: normal;
+            margin-left: 10px;
+        }
+
+        /* Guide Grid */
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary-color);
+        }
+
+        .card-header {
+            height: 160px;
+            background: linear-gradient(45deg, #2d3748, #1a202c);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .class-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .card-body {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        .card-footer {
+            margin-top: auto;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            background: #7c3aed;
+        }
+
+        /* Mechanics Section */
+        .mechanics {
+            background-color: var(--bg-card);
+            padding: 50px;
+            border-radius: 16px;
+            margin-bottom: 60px;
+        }
+
+        .mechanics h2 {
+            margin-bottom: 30px;
+            font-size: 1.5rem;
+        }
+
+        .mechanic-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .mechanic-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .mech-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(139, 92, 246, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .mech-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--accent-gold);
+        }
+
+        .mech-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* FAQ */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .mechanic-item {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav-wrapper">
+        <div class="logo">
+            LOL S6天赋 <span>Guide</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#adventurer">战士</a></li>
+                <li><a href="#assassin">刺客</a></li>
+                <li><a href="#mages">法师</a></li>
+                <li><a href="#tank">坦克</a></li>
+                <li><a href="#marksman">射手</a></li>
+                <li><a href="#support">辅助</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+
+    <section class="hero">
+        <div class="season-badge">S6 赛季指南</div>
+        <h1>英雄联盟 S6 天赋加点大全</h1>
+        <p>重温 S6 赛季经典符文体系，提供全位置、全英雄的详细天赋树加点顺序与符文搭配建议，助你重回峡谷制霸赛场。</p>
+    </section>
+
+    <section id="adventurer">
+        <div class="section-title">
+            <h2>战士与上单</h2>
+            <span>高爆发与持续作战</span>
+        </div>
+        <div class="guide-grid">
+            <article class="card">
+                <div class="card-header">
+                    <span class="class-tag">战士</span>
+                    <img src="https://picsum.photos/seed/panth/400/250" alt="潘森">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">潘森 - 暴走流</h3>
+                    <p class="card-desc">主系精密：征服者 + 盛开 + 永恒之刃 + 致命一击。副系坚决：坚定 + 适应性外壳。</p>
+                    <div class="tags">
+                        <span class="tag">爆发</span>
+                        <span class="tag">开团</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn">查看详情</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <span class="class-tag">战士</span>
+                    <img src="https://picsum.photos/seed/darius/400/250" alt="德莱厄斯">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">德莱厄斯 - 重装</h3>
+                    <p class="card-desc">主系坚决：不灭之握 + 骸骨 + 过度生长 + 韧性。副系精密：凯旋 + 传说：欢欣。</p>
+                    <div class="tags">
+                        <span class="tag">坦克</span>
+                        <span class="tag">持续输出</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn">查看详情</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <span class="class-tag">战士</span>
+                    <img src="https://picsum.photos/seed/yeriko/400/250" alt="亚索">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">亚索 - 电刀流</h3>
+                    <p class="card-desc">主系精密：迅捷步法 + 凯旋 + 传说：血统 + 致命一击。副系巫术：灵光披风 + 飞来横财。</p>
+                    <div class="tags">
+                        <span class="tag">风墙</span>
+                        <span class="tag">游走</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn">查看详情</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="marksman">
+        <div class="section-title">
+            <h2>射手与下路</h2>
+            <span>物理核心输出</span>
+        </div>
+        <div class="guide-grid">
+            <article class="card">
+                <div class="card-header">
+                    <span class="class-tag">射手</span>
+                    <img src="https://picsum.photos/seed/vayne/400/250" alt="薇恩">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">薇恩 - 无双</h3>
+                    <p class="card-desc">主系精密：迅捷步法 + 致命一击 + 传说：欢欣 + 最后的凝视。副系巫术：灵光披风 + 气定神闲。</p>
+                    <div class="tags">
+                        <span class="tag">切后</span>
+                        <span class="tag">高机动</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn">查看详情</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <span class="class-tag">射手</span>
+                    <img src="https://picsum.photos/seed/jinx/400/250" alt="金克丝">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">金克丝 - 疯狂</h3>
+                    <p class="card-desc">主系精密：迅捷步法 + 气定神闲 + 传说：欢欣 + 致命一击。副系巫术：灵光披风 + 超然。</p>
+                    <div class="tags">
+                        <span class="tag">消耗</span>
+                        <span class="tag">大招</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn">查看详情</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <span class="class-tag">射手</span>
+                    <img src="https://picsum.photos/seed/corki/400/250" alt="凯特琳">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">凯特琳 - 狙击</h3>
+                    <p class="card-desc">主系精密：迅捷步法 + 气定神闲 + 传说：欢欣 + 致命一击。副系巫术：灵光披风 + 精通。</p>
+                    <div class="tags">
+                        <span class="tag">手长</span>
+                        <span class="tag">消耗</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn">查看详情</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="mages">
+        <div class="section-title">
+            <h2>法师与中单</h2>
+            <span>法术爆发与控制</span>
+        </div>
+        <div class="guide-grid">
+            <article class="card">
+                <div class="card-header">
+                    <span class="class-tag">法师</span>
+                    <img src="https://picsum.photos/seed/ahri/400/250" alt="阿狸">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">阿狸 - 嗜血</h3>
+                    <p class="card-desc">主系巫术：相位猛冲 + 飞来横财 + 超然 + 灵光披风。副系主宰：黑暗收割 + 眼球收集器。</p>
+                    <div class="tags">
+                        <span class="tag">突进</span>
+                        <span class="tag">消耗</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn">查看详情</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <span class="class-tag">法师</span>
+                    <img src="https://picsum.photos/seed/ziggs/400/250" alt="炸弹人">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">佐伊 - 炸弹</h3>
+                    <p class="card-desc">主系巫术：奥术彗星 + 飞来横财 + 超然 + 灵光披风。副系主宰：黑暗收割 + 眼球收集器。</p>
+                    <div class="tags">
+                        <span class="tag">消耗</span>
+                        <span class="tag">APC</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn">查看详情</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="mechanics">
+        <h2>S6 天赋机制解析</h2>
+        <div class="mechanic-item">
+            <div class="mech-icon">⚔️</div>
+            <div class="mech-content">
+                <h3>征服者</h3>
+                <p>在战斗中持续攻击敌方英雄会叠加层数，叠满后提供攻击力和适应之力。这是战士和刺客的核心天赋，非常适合持续作战和单挑。</p>
+            </div>
+        </div>
+        <div class="mechanic-item">
+            <div class="mech-icon">⚡</div>
+            <div class="mech-content">
+                <h3>相位猛冲</h3>
+                <p>在使用三个独立的技能命中敌人后提供爆发移动速度，非常适合需要频繁切入战场或位移的英雄，如亚索、伊泽瑞尔。</p>
+            </div>
+        </div>
+        <div class="mechanic-item">
+            <div class="mech-icon">🛡️</div>
+            <div class="mech-content">
+                <h3>不灭之握</h3>
+                <p>在对英雄造成伤害后使用技能会回复生命值并造成额外伤害。这是上单坦克型英雄（如奥恩、沃利贝尔）的经典选择。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-list">
+        <div class="section-title">
+            <h2>常见问题</h2>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">S6 赛季天赋系统有哪些变化？</div>
+            <div class="faq-answer">
+                S6 赛季引入了新的天赋树系统，分为精密、主宰、巫术、坚决、灵能五个系，相比之前的版本增加了更多主动技能和符文效果，极大地丰富了战术选择。
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">新手应该选择哪种主系天赋？</div>
+            <div class="faq-answer">
+                对于新手，推荐选择【精密】系的【迅捷步法】或【坚决】系的【不灭之握】。这两个天赋容错率较高，能有效提升续航能力，帮助你在对线期存活。
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">AD 攻击力符文应该点哪里？</div>
+            <div class="faq-answer">
+                AD 攻击力通常选择【精密】系，通过【征服者】叠加层数获取攻击力，或者选择【主宰】系的【黑暗收割】来增加斩杀伤害。副系一般点出【传说：欢欣】增加攻速。
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2024 LOL S6天赋加点大全. 本站为攻略参考站点，所有游戏素材归 Riot Games 所有。</p>
+        <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.7;">本页面内容仅供学习与交流使用，请支持正版游戏。</p>
+    </div>
+</footer>
+
+<script>
+    // 简单的 FAQ 交互逻辑
+    document.querySelectorAll('.faq-question').forEach(item => {
+        item.addEventListener('click', () => {
+            const parent = item.parentElement;
+            parent.classList.toggle('active');
+        });
+    });
+</script>
+
+</body>
+</html>
