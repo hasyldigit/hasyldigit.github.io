@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主播福利 - 精选主播专属权益与福利发放平台</title>
+    <meta name="description" content="主播福利为您提供最新、最全的主播专属福利、礼物回赠、签约奖金及公会扶持政策。汇集全网热门主播福利动态，助力主播成长与变现。">
+    <meta name="keywords" content="主播福利,直播福利,主播礼物,公会扶持,主播签约">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff4757;
+            --primary-hover: #ff6b81;
+            --secondary-color: #2f3542;
+            --bg-color: #f1f2f6;
+            --card-bg: #ffffff;
+            --text-main: #2f3542;
+            --text-sub: #747d8c;
+            --border-radius: 12px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 71, 87, 0.05);
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 10px rgba(255, 71, 87, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, #ff4757 0%, #ff6b81 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin: 0;
+        }
+
+        /* 分类入口 */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .category-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .category-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-card p {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
+
+        /* 福利列表区域 */
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 5px;
+            height: 24px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .福利-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .福利卡片 {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 0.2s;
+        }
+
+        .福利卡片:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .card-image {
+            height: 160px;
+            background-color: #dfe4ea;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-meta {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+
+        .card-footer {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #f1f2f6;
+            padding-top: 1rem;
+        }
+
+        .reward-tag {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .reward-tag::before {
+            content: '🎁';
+            margin-right: 4px;
+        }
+
+        .btn-link {
+            font-size: 0.9rem;
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .btn-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* 公会扶持专区 */
+        .guild-section {
+            background-color: #fff;
+            padding: 4rem 0;
+            margin-bottom: 4rem;
+            border-radius: var(--border-radius);
+        }
+
+        .guild-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .guild-info h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .guild-info p {
+            color: var(--text-sub);
+            margin-bottom: 2rem;
+        }
+
+        .feature-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .guild-image img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        /* 常见问题 */
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-question:hover {
+            background-color: #fafafa;
+        }
+
+        .faq-answer {
+            padding: 0 1.2rem 1.2rem;
+            color: var(--text-sub);
+            display: none;
+            border-top: 1px solid #f1f2f6;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '−';
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .faq-item.active .faq-question::before {
+            content: '+';
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: var(--secondary-color);
+            color: #a4b0be;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            border-top: 1px solid #57606f;
+            padding-top: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+            }
+            
+            nav ul {
+                margin: 1rem 0;
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .guild-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <span>🎁</span> 主播福利
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#latest">最新福利</a></li>
+                    <li><a href="#guild">公会扶持</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-outline">主播登录</button>
+                <button class="btn btn-primary">申请入驻</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero 区域 -->
+    <section class="hero">
+        <div class="container">
+            <h1>助力主播成长，共享直播红利</h1>
+            <p>我们聚合全网优质直播平台资源，为主播提供专属礼物回赠、签约奖金补贴及公会流量扶持计划。让每一份努力都获得应有的回报。</p>
+            <button class="btn" style="background: white; color: var(--primary-color);">查看最新活动</button>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>合作平台</p>
+                </div>
+                <div class="stat-item">
+                    <h3>10w+</h3>
+                    <p>入驻主播</p>
+                </div>
+                <div class="stat-item">
+                    <h3>¥1亿+</h3>
+                    <p>累计发放补贴</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 分类导航 -->
+    <section class="container">
+        <div class="category-grid">
+            <div class="category-card">
+                <span class="category-icon">💎</span>
+                <h3>礼物回赠</h3>
+                <p>直播礼物返还，提高变现效率</p>
+            </div>
+            <div class="category-card">
+                <span class="category-icon">🤝</span>
+                <h3>公会扶持</h3>
+                <p>流量倾斜与运营指导</p>
+            </div>
+            <div class="category-card">
+                <span class="category-icon">🚀</span>
+                <h3>新人补贴</h3>
+                <p>签约奖金与冷启动流量包</p>
+            </div>
+            <div class="category-card">
+                <span class="category-icon">🎓</span>
+                <h3>培训课程</h3>
+                <p>直播技巧与运营干货分享</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 最新福利列表 -->
+    <section class="container" id="latest">
+        <div class="section-title">最新主播福利</div>
+        <div class="福利-grid">
+            <!-- 卡片 1 -->
+            <article class="福利卡片">
+                <div class="card-image">
+                    <img src="https://picsum.photos/seed/anchor1/400/250" alt="平台双11活动">
+                    <span class="card-badge">限时</span>
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span>直播平台</span>
+                        <span>2023-10-25</span>
+                    </div>
+                    <h3 class="card-title">双11狂欢季：礼物返还比例提升至200%</h3>
+                    <p class="card-desc">参与双11特别活动的主播，除常规礼物返还外，额外获得流量曝光券及现金红包补贴。</p>
+                    <div class="card-footer">
+                        <span class="reward-tag">返还比例 200%</span>
+                        <a href="#" class="btn-link">查看详情 →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 卡片 2 -->
+            <article class="福利卡片">
+                <div class="card-image">
+                    <img src="https://picsum.photos/seed/anchor2/400/250" alt="公会签约计划">
+                    <span class="card-badge">热招</span>
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span>公会扶持</span>
+                        <span>2023-10-24</span>
+                    </div>
+                    <h3 class="card-title">星火计划：新公会签约即送10万流量包</h3>
+                    <p class="card-desc">针对优质MCN机构，提供专属流量池对接及账号孵化支持，助力公会快速起号。</p>
+                    <div class="card-footer">
+                        <span class="reward-tag">流量包 10万</span>
+                        <a href="#" class="btn-link">申请入驻 →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 卡片 3 -->
+            <article class="福利卡片">
+                <div class="card-image">
+                    <img src="https://picsum.photos/seed/anchor3/400/250" alt="新人培训">
+                    <span class="card-badge">新人</span>
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span>培训课程</span>
+                        <span>2023-10-22</span>
+                    </div>
+                    <h3 class="card-title">零基础入门：直播话术与互动技巧</h3>
+                    <p class="card-desc">由资深运营专家录制的免费课程，帮助新人主播掌握留人技巧，提升直播间人气。</p>
+                    <div class="card-footer">
+                        <span class="reward-tag">免费课程</span>
+                        <a href="#" class="btn-link">立即学习 →</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 卡片 4 -->
+            <article class="福利卡片">
+                <div class="card-image">
+                    <img src="https://picsum.photos/seed/anchor4/400/250" alt="设备补贴">
+                    <span class="card-badge">硬件</span>
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span>硬件补贴</span>
+                        <span>2023-10-20</span>
+                    </div>
+                    <h3 class="card-title">直播间设备升级补贴计划</h3>
+                    <p class="card-desc">符合条件的优质主播可申请专业级补光灯、声卡及摄像头的租赁补贴。</p>
+                    <div class="card-footer">
+                        <span class="reward-tag">最高补贴 5000元</span>
+                        <a href="#" class="btn-link">查看标准 →</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- 公会扶持专区 -->
+    <section class="container" id="guild">
+        <div class="guild-section">
+            <div class="guild-layout">
+                <div class="guild-info">
+                    <h2>全方位公会扶持体系</h2>
+                    <p>我们深知MCN机构与主播共同成长的重要性，因此提供从流量、运营到变现的全方位支持政策。</p>
+                    <ul class="feature-list">
+                        <li>专属流量池对接，提升直播间曝光率</li>
+                        <li>提供专业运营团队指导与数据分析服务</li>
+                        <li>参与平台官方活动，优先获得推荐位</li>
+                        <li>完善的主播签约管理与法律合规支持</li>
+                    </ul>
+                    <button class="btn btn-primary" style="margin-top: 1rem;">了解公会政策</button>
+                </div>
+                <div class="guild-image">
+                    <img src="https://picsum.photos/seed/guild/600/400" alt="公会运营团队协作">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 常见问题 -->
+    <section class="container" id="faq">
+        <div class="section-title">常见问题解答</div>
+        <div class="faq-section">
+            <div class="faq-item">
+                <div class="faq-question">如何申请主播福利补贴？</div>
+                <div class="faq-answer">请先注册并完善主播资料，审核通过后即可在“最新福利”板块查看符合条件的活动并点击申请。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">礼物返还的周期是多久？</div>
+                <div class="faq-answer">一般平台每月结算一次，具体返还周期请查看对应活动的详细规则说明。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">入驻公会需要满足什么条件？</div>
+                <div class="faq-answer">需具备合法的营业执照，且拥有一定数量的签约主播，过往运营记录良好。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">新人主播有专门的流量扶持吗？</div>
+                <div class="faq-answer">有的，我们设有新人孵化计划，新注册主播可领取冷启动流量包以增加曝光。</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">平台简介</a></li>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#">加入我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>主播服务</h4>
+                    <ul>
+                        <li><a href="#">福利申请</a></li>
+                        <li><a href="#">签约指南</a></li>
+                        <li><a href="#">违规处理</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">活动规则</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 主播福利平台. 保留所有权利. 本站内容仅供信息展示，不构成任何投资建议。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的 FAQ 交互逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                item.querySelector('.faq-question').addEventListener('click', () => {
+                    // 关闭其他打开的项
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // 切换当前项
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
