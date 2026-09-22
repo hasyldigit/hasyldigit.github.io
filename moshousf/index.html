@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>魔兽sf - 经典怀旧版本与私服玩家指南</title>
+    <meta name="description" content="魔兽sf提供最新的魔兽世界怀旧版本私服资讯、开服列表、下载攻略及玩家社区讨论，致力于还原经典魔兽体验。">
+    <meta name="keywords" content="魔兽sf, 魔兽世界私服, 怀旧服, 魔兽sf下载, 经典版本">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #f0a500;
+            --primary-hover: #cc8400;
+            --bg-dark: #1a1a1a;
+            --bg-card: #252525;
+            --text-main: #e0e0e0;
+            --text-sub: #a0a0a0;
+            --border-color: #333;
+            --accent-green: #4caf50;
+            --accent-red: #ff5252;
+            --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 15px;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .section-title span {
+            color: var(--primary-color);
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(26, 26, 26, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: #fff;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            font-size: 1rem;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: rgba(240, 165, 0, 0.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(to bottom, rgba(26, 26, 26, 0.7), var(--bg-dark)), url('https://picsum.photos/seed/warcraftsf/1920/1080') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.8);
+        }
+
+        .hero h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-sub);
+            margin-bottom: 2rem;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 2rem;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Server List (Open Servers) */
+        .servers-section {
+            padding: 60px 0;
+        }
+
+        .server-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .server-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .server-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            border-color: var(--primary-color);
+        }
+
+        .server-header {
+            height: 120px;
+            background: linear-gradient(45deg, #2a2a2a, #3d3d3d);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .server-icon {
+            width: 80px;
+            height: 80px;
+            background: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            border: 4px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .server-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .badge-new { background-color: var(--accent-green); }
+        .badge-hot { background-color: var(--accent-red); }
+
+        .server-body {
+            padding: 20px;
+        }
+
+        .server-title {
+            font-size: 1.25rem;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .server-rate {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .server-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            margin-bottom: 15px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 15px;
+        }
+
+        .server-info-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .server-info-item strong {
+            color: var(--text-main);
+        }
+
+        .server-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .server-actions .btn {
+            flex: 1;
+            text-align: center;
+        }
+
+        /* Features Section */
+        .features-section {
+            background-color: #222;
+            padding: 60px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--bg-card);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .feature-item h3 {
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .feature-item p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 60px 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background-color: var(--bg-card);
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .faq-question:hover {
+            background-color: #2f2f2f;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background-color: #222;
+            color: var(--text-sub);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 15px 20px;
+            max-height: 200px;
+        }
+
+        .faq-item.active .faq-question {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            padding: 50px 0 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .server-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span>⚔️</span> 魔兽SF
+            </a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#">开服列表</a></li>
+                    <li><a href="#">怀旧版本</a></li>
+                    <li><a href="#">下载中心</a></li>
+                    <li><a href="#">攻略论坛</a></li>
+                    <li><a href="#">玩家社区</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <a href="#" class="btn btn-outline">登录</a>
+                <a href="#" class="btn btn-primary">立即注册</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>重温经典 <span>魔兽世界</span><br>寻找你的兄弟</h1>
+                <p>汇集全网最新、最稳定的魔兽私服（SF）资源。体验原汁原味的60级、70级或80级怀旧版本，告别繁琐，享受纯粹的战斗乐趣。</p>
+                <div class="hero-tags">
+                    <span class="tag">怀旧服</span>
+                    <span class="tag">装备回收</span>
+                    <span class="tag">无需下载</span>
+                    <span class="tag">永久免费</span>
+                </div>
+                <div style="display: flex; justify-content: center; gap: 15px;">
+                    <a href="#servers" class="btn btn-primary" style="padding: 12px 30px; font-size: 1rem;">浏览开服列表</a>
+                    <a href="#" class="btn btn-outline" style="padding: 12px 30px; font-size: 1rem;">查看最新攻略</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features-section">
+            <div class="container">
+                <div class="features-grid">
+                    <article class="feature-item">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>数据安全</h3>
+                        <p>采用先进的反外挂技术与数据加密，保障玩家账号与交易安全。</p>
+                    </article>
+                    <article class="feature-item">
+                        <div class="feature-icon">⚡</div>
+                        <h3>高速稳定</h3>
+                        <p>多线服务器部署，低延迟高并发，确保副本体验丝般顺滑。</p>
+                    </article>
+                    <article class="feature-item">
+                        <div class="feature-icon">🎁</div>
+                        <h3>福利丰富</h3>
+                        <p>每日签到、装备回收、经验加成，让新手也能快速上手体验游戏乐趣。</p>
+                    </article>
+                    <article class="feature-item">
+                        <div class="feature-icon">💬</div>
+                        <h3>活跃社区</h3>
+                        <p>拥有完善的公会系统和玩家论坛，结识志同道合的战友。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Server List -->
+        <section id="servers" class="servers-section">
+            <div class="container">
+                <h2 class="section-title">热门 <span>开服推荐</span></h2>
+                <div class="server-grid">
+                    
+                    <!-- Server 1 -->
+                    <article class="server-card">
+                        <div class="server-header">
+                            <div class="server-icon">🐉</div>
+                            <span class="server-badge badge-hot">火热</span>
+                        </div>
+                        <div class="server-body">
+                            <h3 class="server-title">艾泽拉斯之刃 (怀旧60)</h3>
+                            <span class="server-rate">9.8 分</span>
+                            <div class="server-info">
+                                <div class="server-info-item">
+                                    <strong>在线</strong>
+                                    <span>3,402 人</span>
+                                </div>
+                                <div class="server-info-item">
+                                    <strong>开服</strong>
+                                    <span>2 天前</span>
+                                </div>
+                                <div class="server-info-item">
+                                    <strong>职业</strong>
+                                    <span>全职业</span>
+                                </div>
+                            </div>
+                            <div class="server-actions">
+                                <a href="#" class="btn btn-primary">进入游戏</a>
+                                <a href="#" class="btn btn-outline">下载客户端</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Server 2 -->
+                    <article class="server-card">
+                        <div class="server-header">
+                            <div class="server-icon">🏰</div>
+                            <span class="server-badge badge-new">新服</span>
+                        </div>
+                        <div class="server-body">
+                            <h3 class="server-title">燃烧的远征 (70级)</h3>
+                            <span class="server-rate">9.5 分</span>
+                            <div class="server-info">
+                                <div class="server-info-item">
+                                    <strong>在线</strong>
+                                    <span>1,205 人</span>
+                                </div>
+                                <div class="server-info-item">
+                                    <strong>开服</strong>
+                                    <span>12 小时</span>
+                                </div>
+                                <div class="server-info-item">
+                                    <strong>职业</strong>
+                                    <span>全职业</span>
+                                </div>
+                            </div>
+                            <div class="server-actions">
+                                <a href="#" class="btn btn-primary">进入游戏</a>
+                                <a href="#" class="btn btn-outline">下载客户端</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Server 3 -->
+                    <article class="server-card">
+                        <div class="server-header">
+                            <div class="server-icon">⚔️</div>
+                            <span class="server-badge badge-hot">火爆</span>
+                        </div>
+                        <div class="server-body">
+                            <h3 class="server-title">大地的裂变 (80级)</h3>
+                            <span class="server-rate">9.2 分</span>
+                            <div class="server-info">
+                                <div class="server-info-item">
+                                    <strong>在线</strong>
+                                    <span>5,100 人</span>
+                                </div>
+                                <div class="server-info-item">
+                                    <strong>开服</strong>
+                                    <span>5 天前</span>
+                                </div>
+                                <div class="server-info-item">
+                                    <strong>职业</strong>
+                                    <span>全职业</span>
+                                </div>
+                            </div>
+                            <div class="server-actions">
+                                <a href="#" class="btn btn-primary">进入游戏</a>
+                                <a href="#" class="btn btn-outline">下载客户端</a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="#" class="btn btn-outline">查看更多服务器</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guide/Info Section -->
+        <section class="container" style="padding: 60px 20px;">
+            <h2 class="section-title">新手 <span>玩家指南</span></h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                <div>
+                    <h3 style="color: #fff; margin-bottom: 15px; border-left: 3px solid var(--primary-color); padding-left: 10px;">如何选择私服？</h3>
+                    <p style="color: var(--text-sub); margin-bottom: 15px;">选择魔兽私服时，建议优先关注服务器的稳定性、玩家数量以及GM（管理员）的响应速度。查看论坛评论可以有效判断服务器是否存在“吃金”或封号等问题。</p>
+                    <ul style="color: var(--text-sub); list-style-type: disc; padding-left: 20px;">
+                        <li style="margin-bottom: 8px;">检查服务器延迟与带宽。</li>
+                        <li style="margin-bottom: 8px;">确认是否需要下载特定的客户端。</li>
+                        <li style="margin-bottom: 8px;">了解充值比例及装备回收政策。</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="color: #fff; margin-bottom: 15px; border-left: 3px solid var(--primary-color); padding-left: 10px;">常见问题 (FAQ)</h3>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">私服安全吗？会不会盗号？</div>
+                        <div class="faq-answer">
+                            <p style="padding-top: 10px;">正规运营的私服通常不会盗号，但建议不要在第三方不明网站输入账号密码。本站推荐的服务器均经过初步安全筛选。</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">私服和官方怀旧服有什么区别？</div>
+                        <div class="faq-answer">
+                            <p style="padding-top: 10px;">私服通常在数值、副本难度和装备掉率上进行调整，为了迎合玩家对“速通”或“高福利”的需求，而官方怀旧服更侧重于还原原版体验。</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">如何加入公会？</div>
+                        <div class="faq-answer">
+                            <p style="padding-top: 10px;">进入游戏后，在主城找到公会管理员NPC，输入公会名称即可申请加入。也可以直接联系论坛里的会长发邀请。</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于魔兽SF</h4>
+                    <p style="color: var(--text-sub); font-size: 0.9rem; line-height: 1.8;">
+                        我们致力于为玩家提供最全的私服资讯与下载服务。还原经典，畅享游戏，拒绝枯燥。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">开服大厅</a></li>
+                        <li><a href="#">私服排行</a></li>
+                        <li><a href="#">下载中心</a></li>
+                        <li><a href="#">新手教程</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>支持我们</h4>
+                    <ul>
+                        <li><a href="#">广告合作</a></li>
+                        <li><a href="#">玩家投稿</a></li>
+                        <li><a href="#">免责声明</a></li>
+                        <li><a href="#">联系客服</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注动态</h4>
+                    <p style="color: var(--text-sub); font-size: 0.9rem;">
+                        扫码关注公众号<br>获取最新开服通知
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023-2024 魔兽SF平台. All Rights Reserved. 本站内容仅供娱乐交流，请勿用于非法用途。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的FAQ折叠效果
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentNode;
+                const isActive = parent.classList.contains('active');
+                
+                // 关闭其他所有
+                document.querySelectorAll('.faq-item').forEach(child => {
+                    child.classList.remove('active');
+                });
+
+                // 切换当前
+                if (!isActive) {
+                    parent.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
