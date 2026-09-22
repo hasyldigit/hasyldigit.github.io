@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="渔家的姑娘在海边 - 沿海风情、渔家文化、海边生活记录与渔家姑娘的日常分享。探索渔村美景，体验淳朴的渔家生活。">
+    <meta name="keywords" content="渔家的姑娘在海边,渔家生活,海边风景,渔村文化,渔家姑娘,沿海旅游">
+    <title>渔家的姑娘在海边 - 沿海风情与渔家生活指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-blue: #006994;
+            --light-blue: #e0f7fa;
+            --sand: #fdf5e6;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--sand);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            font-size: 1.8rem;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(rgba(0, 105, 148, 0.6), rgba(0, 105, 148, 0.4)), 
+                        url('https://picsum.photos/seed/ocean/1920/1080') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--white);
+            color: var(--primary-blue);
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            color: var(--primary-blue);
+        }
+
+        /* 主题介绍 */
+        .section {
+            padding: 60px 0;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .intro-text h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+        }
+
+        .intro-text p {
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        .intro-image img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        /* 核心栏目 */
+        .categories {
+            background-color: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .category-card {
+            background: var(--light-blue);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            background: #b2ebf2;
+        }
+
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .category-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .category-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* 案例展示 */
+        .showcase {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .showcase-item {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            height: 300px;
+        }
+
+        .showcase-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .showcase-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .showcase-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 20px;
+            color: var(--white);
+        }
+
+        /* FAQ */
+        .faq-section {
+            background-color: var(--white);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        details {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            list-style: none;
+            position: relative;
+            padding-right: 30px;
+            font-size: 1.1rem;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 1.5rem;
+            line-height: 1.2rem;
+            color: var(--primary-blue);
+        }
+
+        details[open] summary::after {
+            content: '-';
+        }
+
+        details p {
+            margin-top: 15px;
+            color: var(--text-light);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #2c3e50;
+            color: var(--white);
+            padding: 50px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #95a5a6;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-wrap: wrap;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                margin-top: 15px;
+                gap: 15px;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .intro-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .showcase {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo"><span>🌊</span> 渔家的姑娘在海边</a>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+            <nav>
+                <ul id="nav-list">
+                    <li><a href="#hero">首页</a></li>
+                    <li><a href="#about">关于渔家</a></li>
+                    <li><a href="#culture">渔家文化</a></li>
+                    <li><a href="#gallery">风景美图</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <h1>渔家的姑娘在海边</h1>
+                <p>探寻那片蔚蓝深处的宁静，体验淳朴渔村的生活节奏，感受大海赋予渔家的独特魅力。</p>
+                <a href="#about" class="btn">开启旅程</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="intro-grid">
+                    <div class="intro-text">
+                        <h2>大海的女儿</h2>
+                        <p>“渔家的姑娘在海边”不仅是一句耳熟能详的歌词，更是一种生活方式的象征。她们依海而生，伴浪而歌，将汗水挥洒在金色的沙滩上，将丰收的喜悦带回温馨的渔家小屋。</p>
+                        <p>在这里，生活节奏缓慢而有序。清晨，她们迎着第一缕阳光出海；傍晚，她们满载而归，处理着今日的渔获。这种与自然和谐共处的生活方式，正是现代都市人向往的“诗与远方”。</p>
+                        <p>我们致力于记录和展示这一独特的文化景观，分享渔家姑娘的故事，以及她们所守护的这片蔚蓝海域。</p>
+                    </div>
+                    <div class="intro-image">
+                        <img src="https://picsum.photos/seed/fishing/600/400" alt="渔家姑娘在海边劳作的场景">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Culture Categories -->
+        <section id="culture" class="section categories">
+            <div class="container">
+                <div class="section-header">
+                    <h2>渔家生活指南</h2>
+                    <p>深入了解渔家文化的方方面面</p>
+                </div>
+                <div class="category-grid">
+                    <article class="category-card">
+                        <span class="category-icon">🎣</span>
+                        <h3>出海捕鱼</h3>
+                        <p>了解传统的拖网、延绳钓等捕鱼方式，以及渔船出海的流程与风险。</p>
+                    </article>
+                    <article class="category-card">
+                        <span class="category-icon">🦀</span>
+                        <h3>海鲜烹饪</h3>
+                        <p>学习如何挑选新鲜海产，以及地道的渔家做法，如清蒸、红烧与腌制。</p>
+                    </article>
+                    <article class="category-card">
+                        <span class="category-icon">🐚</span>
+                        <h3>赶海拾贝</h3>
+                        <p>潮退之时，是拾取花蛤、螃蟹和海螺的最佳时刻，体验收获的乐趣。</p>
+                    </article>
+                    <article class="category-card">
+                        <span class="category-icon">⚓</span>
+                        <h3>渔家民俗</h3>
+                        <p>从渔歌号子到祭海仪式，感受渔民们敬畏自然、祈求平安的信仰体系。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>海边风光与生活</h2>
+                    <p>镜头下的渔家风情</p>
+                </div>
+                <div class="showcase">
+                    <div class="showcase-item">
+                        <img src="https://picsum.photos/seed/sea1/400/300" alt="渔港日出">
+                        <div class="showcase-overlay">
+                            <h3>晨曦渔港</h3>
+                            <p>日出时分，渔港苏醒</p>
+                        </div>
+                    </div>
+                    <div class="showcase-item">
+                        <img src="https://picsum.photos/seed/sea2/400/300" alt="晒网">
+                        <div class="showcase-overlay">
+                            <h3>晒网时节</h3>
+                            <p>晾晒渔网，准备新一轮出海</p>
+                        </div>
+                    </div>
+                    <div class="showcase-item">
+                        <img src="https://picsum.photos/seed/sea3/400/300" alt="渔家宴">
+                        <div class="showcase-overlay">
+                            <h3>渔家盛宴</h3>
+                            <p>刚上岸的海鲜，最新鲜的美味</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section faq-section">
+            <div class="container faq-container">
+                <div class="section-header">
+                    <h2>常见问题解答</h2>
+                    <p>关于渔家生活和海边旅游的疑问</p>
+                </div>
+                <details>
+                    <summary>去海边旅游时，如何体验最地道的渔家生活？</summary>
+                    <p>建议选择非旅游旺季前往，入住渔家民宿。清晨可以跟随当地渔民出海，体验捕鱼；傍晚可以去沙滩赶海，或者参观渔市了解海鲜价格和种类。</p>
+                </details>
+                <details>
+                    <summary>“渔家的姑娘在海边”这首歌讲述了什么？</summary>
+                    <p>这首歌描绘了渔家姑娘勤劳朴实、热爱家乡的形象，展现了她们在海边劳作、生活以及等待心上人的美好画面，是一首充满乡土气息和浪漫色彩的经典民歌。</p>
+                </details>
+                <details>
+                    <summary>去海边赶海需要注意什么？</summary>
+                    <p>首先必须关注潮汐表，选择退潮时间；其次要穿戴好防滑鞋和手套，避免受伤；注意安全，不要独自前往未开发的海域；保护海洋环境，带走垃圾。</p>
+                </details>
+                <details>
+                    <summary>渔家菜有什么特色？</summary>
+                    <p>渔家菜以“鲜”字为核心，讲究原汁原味。常见的特色菜有清蒸石斑鱼、葱油梭子蟹、海鲜疙瘩汤等。调料通常比较简单，主要依靠食材本身的新鲜度。</p>
+                </details>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <p style="color: #bdc3c7; font-size: 0.9rem;">
+                        我们专注于展示渔家文化、推广海边旅游，记录那些在海边辛勤劳作、美丽动人的渔家姑娘的故事。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#hero">回到首页</a></li>
+                        <li><a href="#culture">渔家文化</a></li>
+                        <li><a href="#gallery">风景美图</a></li>
+                        <li><a href="#faq">帮助中心</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li>邮箱: contact@fishing-life.com</li>
+                        <li>电话: 123-4567-8900</li>
+                        <li>地址: 中国某沿海渔村</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 渔家的姑娘在海边. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navList = document.getElementById('nav-list');
+            navList.classList.toggle('active');
+        }
+
+        // 平滑滚动修正
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    // 移动端点击后自动收起菜单
+                    if (window.innerWidth <= 768) {
+                        document.getElementById('nav-list').classList.remove('active');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
